@@ -32,7 +32,7 @@ def split_data(x, y, tr_fraction=0.5):
 
     """
     n_samples = x.shape[0]
-    n_tr = n_samples * tr_fraction
+    n_tr = int(n_samples * tr_fraction)
     n_ts = n_samples - n_tr
     idx = np.linspace(0, n_samples - 1, num=n_samples, dtype=int)
     np.random.shuffle(idx)  # Inplace operation
