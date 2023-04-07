@@ -45,3 +45,19 @@ def split_data(x, y, tr_fraction=0.5):
     x_ts = x[idx_ts, :]
     y_ts = y[idx_ts]
     return x_tr, y_tr, x_ts, y_ts
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+import cv2
+
+# read image
+im = cv2.imread('C:/Users/Utente/Desktop/Immagine.png')
+# calculate mean value from RGB channels and flatten to 1D array
+vals = im.mean(axis=2).flatten()
+# calculate histogram
+counts, bins = np.histogram(vals, range(257))
+# plot histogram centered on values 0..255
+plt.bar(bins[:-1] - 0.5, counts, width=1, edgecolor='none')
+plt.xlim([-0.5, 255.5])
+plt.show()
